@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let userNumber = prompt("Будь ласка, введіть тризначне число");
+    let result = checkDigit(userNumber);
+    function checkDigit(number) {
+        let num = number.toString();
+        let dig1 = num[0];
+        let dig2 = num[1];
+        let dig3 = num[2];
+
+        let allSame = (dig1 === dig2) && (dig2 === dig3);
+        let hasRepeating = (dig1 === dig2) || (dig2 === dig3) || (dig1 === dig3);
+    
+        return {
+            allSame,hasRepeating
+        };
+        }
+     alert("Всі цифри однакові: " + result.allSame + "\nЄ цифри, що повторюються: " + result.hasRepeating);
+    </script>
+</body>
+</html>
