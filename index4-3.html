@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function getUserInput(message, field) {
+    let input = prompt(message);
+    if (input === null) {
+        alert("Шкода, що Ви не захотіли ввести свій(ю) " + field);
+        return null;
+    }
+        return input;
+    }
+
+    let birthYear = getUserInput("Введіть ваш рік народження:", "дату народження");
+    let city = getUserInput("В якому місті ви живете?", "місто");
+    let sport = getUserInput("Який ваш улюблений вид спорту?", "вид спорту");
+
+    if (birthYear && city && sport) {
+        let currentYear = new Date().getFullYear();
+        let age = currentYear - birthYear;
+
+        let capitalCities = {
+        "Київ": "України",
+        "Вашингтон": "США",
+        "Лондон": "Великобританії"
+        };
+
+        let cityMessage;
+        if (capitalCities[city]) {
+            cityMessage = `Ти живеш у столиці ${capitalCities[city]}.`;
+        } else {
+            cityMessage = `Ти живеш у місті ${city}.`;
+        }
+
+        let sportChampions = {
+        "футбол": "Ліонель Мессі",
+        "теніс": "Яннік Сінне",
+        "баскетбол": "Майкл Джордан"
+        };
+
+        let sportMessage;
+        if (sportChampions[sport]) {
+            sportMessage = `Круто! Хочеш стати ${sportChampions[sport]}?`;
+        } else {
+            sportMessage = '';
+        }
+
+        alert(`Ваш вік: ${age}\n${cityMessage}\n${sportMessage}`);
+    }
+    </script>
+</body>
+</html>
